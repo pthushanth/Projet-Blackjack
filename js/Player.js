@@ -28,8 +28,6 @@ class Player {
       this.win = false;
       this.game.isEnd = true;
     }
-    // console.log("card value :" + cardValue);
-    // console.log("card point :" + points);
     console.log("score : " + this.score);
   }
 
