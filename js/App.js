@@ -9,10 +9,12 @@ const scoreAfterDiv = document.getElementById("scoreAfter");
 const resultDiv = document.getElementById("result");
 const RemainingCardsDiv = document.getElementById("remainingCards");
 let newImg;
+let vibrateDuration;
 const game = await Game.create();
 buttonRestart.disabled = true;
 // let hold = false;
 const hit = async () => {
+  vibrateDuration = 200;
   if (buttonRestart.disabled) buttonRestart.disabled = false;
   await game.player.hitMe();
   const cardImg = game.player.cards[game.player.cards.length - 1].images["png"];
@@ -23,11 +25,16 @@ const hit = async () => {
     buttonTake.disabled = true;
     buttonStand.disabled = true;
     if (game.player.isWin) {
+      vibrateDuration = [300, 100, 300, 100, 300];
       resultDiv.innerHTML = "<h1 style='color:green'>You Won</h1>";
     } else {
+      vibrateDuration = [
+        100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100,
+      ];
       resultDiv.innerHTML = "<h1 style='color:red'>You Lost</h1>";
     }
   }
+  window.navigator.vibrate(vibrateDuration);
 };
 
 const hold = async () => {
