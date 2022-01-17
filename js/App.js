@@ -99,3 +99,12 @@ const restart = async () => {
 buttonTake.addEventListener("click", hit);
 buttonStand.addEventListener("click", hold);
 buttonRestart.addEventListener("click", restart);
+
+document.addEventListener("keypress", function (e) {
+  if (e.key === "d") {
+    console.log("test");
+    if (game.isStart && !game.isEnd) {
+      hit();
+    }
+  }
+});
