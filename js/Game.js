@@ -1,5 +1,6 @@
 import Deck from "./Deck.js";
 import Player from "./Player.js";
+import Print from "./Print.js";
 
 class Game {
   constructor() {
@@ -7,7 +8,8 @@ class Game {
     this.deck;
     this.isStart = true;
     this.isEnd = false;
-    // this.init();
+    this.print;
+    this.init();
   }
 
   // async init(){
@@ -23,6 +25,8 @@ class Game {
   static async create() {
     const game = new Game();
     await game.init();
+    const print= new Print();
+    print.DrawImage();
     return game;
   }
 

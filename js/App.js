@@ -1,4 +1,5 @@
 import Game from "./Game.js";
+import Print from "./Print.js";
 
 const buttonTake = document.getElementById("takeCard");
 const buttonStand = document.getElementById("stand");
@@ -8,19 +9,26 @@ const scoreDiv = document.getElementById("score");
 const scoreAfterDiv = document.getElementById("scoreAfter");
 const resultDiv = document.getElementById("result");
 const RemainingCardsDiv = document.getElementById("remainingCards");
+const DomCanvas = document.getElementById("showcard");
 let newImg;
 let vibrateDuration;
 const game = await Game.create();
 buttonRestart.disabled = true;
 // let hold = false;
+let imageTest="";
+
 const hit = async () => {
   vibrateDuration = 200;
   if (buttonRestart.disabled) buttonRestart.disabled = false;
   await game.player.hitMe();
   const cardImg = game.player.cards[game.player.cards.length - 1].images["png"];
-  displayCardImage(cardImg);
+  const print= new Print();
+  // displayCardImage(cardImg);
   displayScore();
   displayRemainingCards();
+
+  imageTest=cardImg;
+
   if (game.isEnd) {
     buttonTake.disabled = true;
     buttonStand.disabled = true;
@@ -34,7 +42,10 @@ const hit = async () => {
       resultDiv.innerHTML = "<h1 style='color:red'>You Lost</h1>";
     }
   }
-  window.navigator.vibrate(vibrateDuration);
+  
+  const canVibrate = window.navigator.vibrate
+if (canVibrate)  window.navigator.vibrate(vibrateDuration);
+ 
 };
 
 const hold = async () => {
@@ -97,6 +108,7 @@ const restart = async () => {
   scoreAfterDiv.innerHTML = "";
   resultDiv.innerHTML = "";
   RemainingCardsDiv.innerHTML = "";
+  DomCanvas.innerHTML = "";
   buttonTake.disabled = false;
   buttonStand.disabled = false;
   await game.restart();
@@ -114,4 +126,11 @@ document.addEventListener("keypress", function (e) {
       hit();
     }
   }
+});
+
+
+window.addEventListener("load", function(event) {
+  console.log("tetttttt")
+  const print= new Print();
+  print.loadAndDrawImage(imageTest);
 });
