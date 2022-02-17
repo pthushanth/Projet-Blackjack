@@ -1,0 +1,117 @@
+/* reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  z-index: -1;
+  transition: 850ms;
+}
+
+.btn {
+  margin-top: 15px;
+  width: 160px;
+  height: 50px;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  background-color: #63a4ff;
+  background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
+}
+
+a {
+  text-decoration: none;
+}
+.btn:hover .bg {
+  filter: invert(100%) brightness(20%);
+}
+
+.filter {
+  filter: invert(100%) brightness(20%);
+}
+
+/* block effect */
+
+.effect {
+  font-size: 5rem;
+  text-align: center;
+}
+
+.reveal {
+  color: transparent;
+  padding: 4px;
+  position: relative;
+  overflow: hidden;
+  animation: revealBlock 0s 1.7s forwards;
+}
+
+.reveal::after {
+  content: "";
+  width: 0%;
+  height: 100%;
+  padding-bottom: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #bf4060;
+  animation: revealingIn 1.2s 0.5s forwards, revealingOut 1.2s 1.7s forwards;
+}
+
+/* animations */
+@keyframes revealBlock {
+  100% {
+    color: #0f0f0f;
+  }
+}
+
+@keyframes revealingIn {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes revealingOut {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 10px;
+  }
+}

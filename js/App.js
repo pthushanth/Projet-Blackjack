@@ -8,33 +8,48 @@ const scoreDiv = document.getElementById("score");
 const scoreAfterDiv = document.getElementById("scoreAfter");
 const resultDiv = document.getElementById("result");
 const RemainingCardsDiv = document.getElementById("remainingCards");
+const networkStatusDiv = document.getElementById("networkStatus");
 let newImg;
 let vibrateDuration;
 const game = await Game.create();
 buttonRestart.disabled = true;
 // let hold = false;
+
 const hit = async () => {
+  //to not take a card while waiting for a card
+  buttonTake.disabled = true;
   vibrateDuration = 200;
   if (buttonRestart.disabled) buttonRestart.disabled = false;
   await game.player.hitMe();
   const cardImg = game.player.cards[game.player.cards.length - 1].images["png"];
+
+  var img = document.getElementById("img").getElementsByTagName("img");
+  console.log(img[0]);
+
   displayCardImage(cardImg);
   displayScore();
   displayRemainingCards();
+  buttonTake.disabled = false;
   if (game.isEnd) {
-    buttonTake.disabled = true;
-    buttonStand.disabled = true;
-    if (game.player.isWin) {
-      vibrateDuration = [300, 100, 300, 100, 300];
-      resultDiv.innerHTML = "<h1 style='color:green'>You Won</h1>";
-    } else {
-      vibrateDuration = [
-        100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100,
-      ];
-      resultDiv.innerHTML = "<h1 style='color:red'>You Lost</h1>";
-    }
+    // buttonTake.disabled = true;
+
+    gameEnd();
   }
   window.navigator.vibrate(vibrateDuration);
+};
+
+const gameEnd = () => {
+  buttonTake.disabled = true;
+  buttonStand.disabled = true;
+  if (game.player.isWin) {
+    vibrateDuration = [300, 100, 300, 100, 300];
+    resultDiv.innerHTML = "<h1 style='color:green'>You Won</h1>";
+  } else {
+    vibrateDuration = [
+      100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100,
+    ];
+    resultDiv.innerHTML = "<h1 style='color:red'>You Lost</h1>";
+  }
 };
 
 const hold = async () => {
@@ -115,3 +130,48 @@ document.addEventListener("keypress", function (e) {
     }
   }
 });
+
+const onlineText =
+  '<p>network status : <span style="color:green">Online</span> </p>';
+const offlineText =
+  '<p>network status : <span style="color:red">Offline</span></p>';
+
+if (navigator.onLine) {
+  networkStatusDiv.innerHTML = onlineText;
+} else {
+  networkStatusDiv.innerHTML = offlineText;
+}
+
+window.addEventListener("online", function (e) {
+  networkStatusDiv.innerHTML = onlineText;
+});
+
+window.addEventListener("offline", function (e) {
+  networkStatusDiv.innerHTML = offlineText;
+});
+
+window.addEventListener("userproximity", function (event) {
+  if (event.near) {
+    if (game.isStart && !game.isEnd) {
+      hit();
+    }
+  }
+});
+// const checkOnlineStatus = async () => {
+//   try {
+//     const online = await fetch("http://www.1x1px.me/");
+//     return online.status >= 200 && online.status < 300; // either true or false
+//   } catch (err) {
+//     return false; // offline
+//   }
+// };
+// setInterval(async () => {
+//   const result = await checkOnlineStatus();
+//   networkStatusDiv.innerHTML = result ? onlineText : offlineText;
+// }, 3000);
+
+// window.addEventListener("load", async (event) => {
+//   statusDisplay.innerHTML = (await checkOnlineStatus())
+//     ? onlineText
+//     : offlineText;
+// });

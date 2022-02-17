@@ -1,26 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/app.css">
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <button id="takeCard">TAKE A CARD</button>
-    <button id="stand">Stand</button>
-    <button id="restart">Restart</button>
+  <h1 class="effect">
+  <div class="reveal">Welcome to BlackJack</div>
+</h1>
+<div class="bg"></div>
+  <a id="btn" class="btn" href="./game.html"> Play</a>
 
-    <div id="result"></div>
-    <div id="img" style="margin-top: 100px;">
-        
-    </div>
-    <div id="score"></div>
-    <div id="scoreAfter"></div>
+  <script>
+   let btn = document.getElementById("btn");
+   let bg = document.querySelector(".bg");
 
-    <div id="remainingCards">
-    </div>
+btn.addEventListener("mouseenter", function( event ) {
+  bg.classList.add("filter")
+})
+btn.addEventListener("mouseleave", function( event ) {
+  bg.classList.remove("filter")
+})
+  </script>
 </body>
-<script src="js/App.js" type="module"></script>
+
 </html>
+
+
