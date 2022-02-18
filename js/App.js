@@ -4,6 +4,7 @@ const buttonTake = document.getElementById("takeCard");
 const buttonStand = document.getElementById("stand");
 const buttonRestart = document.getElementById("restart");
 const imgDiv = document.getElementById("img");
+const loader = document.getElementById("loader");
 const scoreDiv = document.getElementById("score");
 const scoreAfterDiv = document.getElementById("scoreAfter");
 const resultDiv = document.getElementById("result");
@@ -16,6 +17,7 @@ buttonRestart.disabled = true;
 // let hold = false;
 
 const hit = async () => {
+  loader.classList.add("display");
   //to not take a card while waiting for a card
   buttonTake.disabled = true;
   vibrateDuration = 200;
@@ -27,6 +29,7 @@ const hit = async () => {
   console.log(img[0]);
 
   displayCardImage(cardImg);
+  loader.classList.remove("display");
   displayScore();
   displayRemainingCards();
   buttonTake.disabled = false;
