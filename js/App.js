@@ -35,7 +35,9 @@ const hit = async () => {
 
     gameEnd();
   }
-  window.navigator.vibrate(vibrateDuration);
+  //avoid vibrate error on mac
+  const canVibrate = window.navigator.vibrate;
+  if (canVibrate) window.navigator.vibrate(vibrateDuration);
 };
 
 const gameEnd = () => {
