@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/app.css">
+    <title>Blackjack</title>
+</head>
+<body>
+    <button id="takeCard" class="button">TAKE A CARD</button>
+    <button id="stand" class="button">Stand</button>
+    <button id="restart" class="button">Restart</button>
+
+    <div id="result">
+    </div>
+    <div id="img" style="margin-top: 100px;">
+        
+    </div>
+    <div id="score"></div>
+    <div id="scoreAfter"></div>
+
+    <div id="remainingCards"></div>   
+
+    <div class="modal">
+        <!-- Modal container -->
+        <div class="container">
+            <div class="interior">
+                <a class="modal-btn-win" href="#open-modal-win">Win</a>
+                <a class="modal-btn-lose" href="#open-modal-lose">Lose</a>
+            </div>
+        </div>
+        <div id="open-modal-win" class="modal-window-win">
+            <div>
+                <a href="#" title="Close" class="modal-close-win">Close</a>
+                <h1>You Won !</h1>
+            </div>
+        </div>
+        <!-- end -->
+        <div id="open-modal-lose" class="modal-window-lose">
+            <div>
+                <a href="#" title="Close" class="modal-close-lose">Close</a>
+                <h1>You Lost !</h1>
+        </div>
+    </div>
+</body>
+<script src="js/App.js" type="module"></script>
+</html>

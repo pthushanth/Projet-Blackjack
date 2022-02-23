@@ -5,3 +5,194 @@
 #img img:first-child {
   margin-left: 50px;
 }
+
+body{
+  height: 100%;
+  width: 70%;
+  background-image: url('/assets/img/table_blackjack.png') ; 
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border-radius: 1rem;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  
+}
+#takeCard.button {
+  background-color: red;  
+}
+
+/*Modal WIN*/
+.modal-window-win {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+.modal-window-win:target {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-window-win > div {
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2em;
+  background: #4CAF50;
+}
+.modal-window-win header {
+  font-weight: bold;
+}
+.modal-window-win h1 {
+  font-size: 150%;
+  margin: 0 0 15px;
+}
+.modal-close-win {
+  color: rgb(0, 0, 0);
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+}
+.modal-close-win:hover {
+  color: rgb(255, 255, 255);
+}
+
+
+.modal-window-win> div {
+  border-radius: 1rem;
+}
+
+.modal-window-win div:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+/*endModaleLOSE*/
+
+/*Modale LOSE*/
+.modal-window-lose {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+.modal-window-lose:target {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-window-lose > div {
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2em;
+  background: red;
+}
+.modal-window-lose header {
+  font-weight: bold;
+}
+.modal-window-lose h1 {
+  font-size: 150%;
+  margin: 0 0 15px;
+}
+
+.modal-close-lose {
+  color: rgb(0, 0, 0);
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+}
+.modal-close-lose:hover {
+  color: rgb(255, 255, 255);
+}
+
+.modal-window-lose > div {
+  border-radius: 1rem;
+}
+
+.modal-window-lose div:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+
+.modal-btn-lose {
+  position: auto;
+  background-color: white;
+  padding: 1em 1.5em;
+  border-radius: 1rem;
+  text-decoration: none;
+}
+.modal-btn-lose i {
+  padding-right: 0.3em;
+}
+/*endModaleLOSE*/
+
+/* Demo Styles */
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+body {
+  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  /* background-image: linear-gradient(to right, #7f53ac 0, #657ced 100%); */
+  color: black;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+small {
+  color: lightgray;
+}
+
+/* end Modal css */
