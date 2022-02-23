@@ -67,11 +67,11 @@ const hold = async () => {
     buttonTake.disabled = true;
     buttonStand.disabled = true;
     if (game.player.isWin) {
-      resultDiv.innerHTML = "<h1 style='color:green'>You Won</h1>";
-      scoreAfterDiv.innerHTML =
-        "You won because your score futur " +
-        game.player.scoreAfterHold +
-        " is over 21";
+      resultDiv.innerHTML = "<div id='open-modal-win' class='modal-window-win'><div><a href='#' title='Close' class='modal-close-win'>Close</a><h1>You Won !</h1><div><p>'You won because your score futur '" + game.player.scoreAfterHold + "' is over 21'</p></div></div></div>"
+      // scoreAfterDiv.innerHTML =
+      //   "You won because your score futur " +
+      //   game.player.scoreAfterHold +
+      //   " is over 21";
     } else {
       resultDiv.innerHTML = "<h1 style='color:red'>You Lost</h1>";
       scoreAfterDiv.innerHTML =
