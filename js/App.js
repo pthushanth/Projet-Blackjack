@@ -48,12 +48,20 @@ const gameEnd = () => {
   buttonStand.disabled = true;
   if (game.player.isWin) {
     vibrateDuration = [300, 100, 300, 100, 300];
-    resultDiv.innerHTML = "<h1 style='color:green'>You Won</h1>";
+    resultDiv.innerHTML = "<h1 style='color:green'>You Won !</h1>";
+    scoreAfterDiv.innerHTML =
+        "You won because your score futur " +
+        game.player.scoreAfterHold +
+        " is over 21";
   } else {
     vibrateDuration = [
       100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100,
     ];
-    resultDiv.innerHTML = "<h1 style='color:red'>You Lost</h1>";
+    resultDiv.innerHTML = "<h1 style='color:red'>You Lost !</h1>";
+    scoreAfterDiv.innerHTML =
+        "You lost because your score futur " +
+        game.player.scoreAfterHold +
+        " is under 21";
   }
 };
 
@@ -67,13 +75,14 @@ const hold = async () => {
     buttonTake.disabled = true;
     buttonStand.disabled = true;
     if (game.player.isWin) {
-      resultDiv.innerHTML = "<div id='open-modal-win' class='modal-window-win'><div><a href='#' title='Close' class='modal-close-win'>Close</a><h1>You Won !</h1><div><p>'You won because your score futur '" + game.player.scoreAfterHold + "' is over 21'</p></div></div></div>"
-      // scoreAfterDiv.innerHTML =
-      //   "You won because your score futur " +
-      //   game.player.scoreAfterHold +
-      //   " is over 21";
+    //   resultDiv.innerHTML = "<div id='open-modal-win' class='modal-window-win'><div><a href='#' title='Close' class='modal-close-win'>Close</a><h1>You Won !</h1><div><p>'You won because your score futur '" + game.player.scoreAfterHold + "' is over 21'</p></div></div></div>"
+    resultDiv.innerHTML = "<h1 style='color:red'>You Won !</h1>";
+    scoreAfterDiv.innerHTML =
+        "You won because your score futur " +
+        game.player.scoreAfterHold +
+        " is over 21";
     } else {
-      resultDiv.innerHTML = "<h1 style='color:red'>You Lost</h1>";
+      resultDiv.innerHTML = "<h1 style='color:red'>You Lost !</h1>";
       scoreAfterDiv.innerHTML =
         "You lost because your futur " +
         game.player.scoreAfterHold +
@@ -108,7 +117,7 @@ const displayScore = () => {
 };
 
 const displayRemainingCards = () => {
-  RemainingCardsDiv.innerHTML = "Remaining cards : " + game.deck.remainingCard;
+    RemainingCardsDiv.innerHTML = "<div class='remaning'> Remaining : " + game.deck.remainingCard + " cards </div>"
 };
 
 const restart = async () => {
@@ -137,9 +146,9 @@ document.addEventListener("keypress", function (e) {
 });
 
 const onlineText =
-  '<p>network status : <span style="color:green">Online</span> </p>';
+  '<p>Network status : <span style="color:green">Online</span> </p>';
 const offlineText =
-  '<p>network status : <span style="color:red">Offline</span></p>';
+  '<p>Network status : <span style="color:red">Offline</span></p>';
 
 if (navigator.onLine) {
   networkStatusDiv.innerHTML = onlineText;

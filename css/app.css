@@ -36,18 +36,19 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  max-width: 900px;
+  /* max-width: 900px; */
   width: 100%;
-  height: 600px;
+  height: 100%;
 }
 .container {
   position: relative;
   display: flex;
 }
 .box {
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    height: 100%;
+    background: transparent;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
@@ -55,16 +56,46 @@
   flex-direction: column;
 }
 
-body {
-  background-color: #2ac778;
+.remaningCards {
+    
 }
 
-.top,
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    background-image: url("../assets/img/game.jpg");
+    background-size: auto;
+    -webkit-background-size: cover; 
+    background-size:cover; 
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.top {
+    height: 50px;
+    background-color: rgb(216, 216, 216);
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    background: linear-gradient(90deg, #787878 0%,
+                                       #b5b5b5 25%,
+                                       #e3e3e3 50%,
+                                       #b5b5b5 75%,
+                                       #787878 100%);
+  }
+
 .bottom {
-  height: 50px;
-  background-color: #000;
-  color: #fff;
-  width: 100%;
+    height: 50px;
+    background-color: rgb(216, 216, 216);
+    color: #fff;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    background: linear-gradient(90deg, #7e7e7e 0%,
+                                       #e3e3e3 25%,
+                                       #787878 50%,
+                                       #e3e3e3 75%,
+                                       #7e7e7e 100%);
 }
 .bottom {
   position: absolute;
@@ -106,6 +137,9 @@ body {
 }
 
 .item {
+    top: 30%;
+    left: 45%;
+  position: absolute;
   min-height: 500px;
   justify-content: center;
   align-self: center;
