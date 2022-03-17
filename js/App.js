@@ -12,6 +12,7 @@ const RemainingCardsDiv = document.getElementById("remainingCards");
 const networkStatusDiv = document.getElementById("networkStatus");
 let newImg;
 let vibrateDuration;
+let elem;
 const game = await Game.create();
 buttonRestart.disabled = true;
 // let hold = false;
@@ -26,7 +27,7 @@ const hit = async () => {
   const cardImg = game.player.cards[game.player.cards.length - 1].images["png"];
 
   var img = document.getElementById("img").getElementsByTagName("img");
-  console.log(img[0]);
+  //console.log(img[0]);
 
   displayCardImage(cardImg);
   loader.classList.remove("display");
@@ -95,6 +96,19 @@ const displayCardImage = (img) => {
   newImg.onload = () => {
     imgDiv.append(newImg);
   };
+  setTimeout(anim,10);
+  function anim(){
+  let imglast = imgDiv.lastElementChild;
+   console.log(imglast);
+    if (imglast != undefined){
+    imglast.animate(
+      [   
+       {transform: 'translate(-100px,-100px)'},
+       {transform: 'translate(0px,-75px)'},
+       {transform: 'translate(0px,0px)'}
+      ],
+      {duration: 400}
+      );}}
   newImg.src = img;
   // return new Promise((resolve, reject) => {
   //   const newImg = document.createElement("img");
@@ -104,12 +118,13 @@ const displayCardImage = (img) => {
   // });
 };
 const displayHoldCardImage = (img) => {
-  newImg = document.createElement("img");
-  newImg.style.marginTop = "-100px";
+  let newImg = document.createElement("img");
+  //last.style.last =imgDiv.marginTop = "-100px";
+  console.log(last);
   newImg.onload = () => {
     imgDiv.append(newImg);
   };
-  newImg.src = img;
+  imgDiv.src = img;
 };
 const displayScore = () => {
   const text = `<h2 style="color:blue">Score : ${game.player.score}</h2>`;
