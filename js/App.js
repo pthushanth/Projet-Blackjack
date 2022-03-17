@@ -49,19 +49,13 @@ const gameEnd = () => {
   if (game.player.isWin) {
     vibrateDuration = [300, 100, 300, 100, 300];
     resultDiv.innerHTML = "<h1 style='color:green'>You Won !</h1>";
-    scoreAfterDiv.innerHTML =
-        "You won because your score futur " +
-        game.player.scoreAfterHold +
-        " is over 21";
+    
   } else {
     vibrateDuration = [
       100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100,
     ];
     resultDiv.innerHTML = "<h1 style='color:red'>You Lost !</h1>";
-    scoreAfterDiv.innerHTML =
-        "You lost because your score futur " +
-        game.player.scoreAfterHold +
-        " is under 21";
+   
   }
 };
 
@@ -111,13 +105,19 @@ const displayHoldCardImage = (img) => {
   };
   newImg.src = img;
 };
+
+if(game.player.score == 0) {
+  const startScore = `Score : -- `
+  scoreDiv.innerHTML = startScore;
+}
+
 const displayScore = () => {
-  const text = `<h2 style="color:blue">Score : ${game.player.score}</h2>`;
+  const text = `Score : ${game.player.score}`;
   scoreDiv.innerHTML = text;
 };
 
 const displayRemainingCards = () => {
-    RemainingCardsDiv.innerHTML = "<div class='remaning'> Remaining : " + game.deck.remainingCard + " cards </div>"
+    RemainingCardsDiv.innerHTML = "Remaining : " + game.deck.remainingCard + " cards"
 };
 
 const restart = async () => {

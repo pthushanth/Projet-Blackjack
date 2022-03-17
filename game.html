@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="icon" href="/assets/img/blackjack.png">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/app.css" />
-    <title>Document</title>
+    <title>Blackjack</title>
   </head>
   <body>
     <section id="game">
       <div class="container box">
         <div class="top container">
-          <div id="networkStatus"></div>
+          <div id="networkStatus" class="network"></div>
           <div id="result"></div>
-          <div id="remainingCards" style="color: #fff"></div>
+          <div id="remainingCards" class="remainingCards"></div>
         </div>
         <div class="item">
           <div id="loader" class="loader"></div>
           <div id="img"></div>
-
+          
           <div id="scoreAfter"></div>
         </div>
-        <div class="bottom container">
-          <div class="container">
-            <button class="btn" id="takeCard">Deal</button>
-            <button class="btn" id="stand">Stand</button>
-            <button class="btn" id="restart">Restart</button>
+        
+        <div class="before-bottom">
+          <div class="left">
+            <button class="btn-hit" id="takeCard"><img src="/assets/img/hit.png" height ="60" width="70" /></button>
           </div>
+
+          <div class="right">
+            <button class="btn-stand" id="stand"><img src="/assets/img/hold.png" height ="50" width="50" style="margin-right:10px;" /></button>
+            <button class="btn-restart" id="restart"><img src="/assets/img/restart.png" height ="50" width="50" style="margin-left:1px;" /></button>
+        </div>
+
+    </div>
+
+        <div class="bottom container">
           <div class="divScore">
             <div id="score"></div>
           </div>

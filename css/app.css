@@ -1,6 +1,7 @@
 #img img {
   margin-left: -100px;
   width: 150px;
+  
 }
 
 #img img:first-child {
@@ -56,12 +57,19 @@
   flex-direction: column;
 }
 
-.remaningCards {
-    
+.remainingCards {
+  color: #fff;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.network{
+  color: #fff;
+  margin-left: 10px;
 }
 
 body {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: cursive;
     background-image: url("../assets/img/game.jpg");
     background-size: auto;
     -webkit-background-size: cover; 
@@ -101,7 +109,54 @@ body {
   position: absolute;
   bottom: 0;
 }
-.btn {
+
+.before-bottom {
+  position: absolute;
+  bottom: 50px;
+  display:flex;
+  width:100%;
+}
+
+.before-bottom .right,.before-bottom .left {
+  width:50%;
+  margin-bottom: 15px;
+  padding: 0 10px;
+  
+}
+.before-bottom .right{
+  display: flex;
+  justify-content: end;
+}
+.before-bottom button{
+  margin-left:  10px;
+  width: 85px;
+  height: 85px;
+  border-radius: 100%;
+}
+
+/* .before-bottom .right{
+  margin-left: auto;
+  margin: 0 50px;
+ justify-content: end;
+  justify-items: end;
+  width: 50%;
+}
+.before-bottom .center{
+  margin-left: auto;
+  background-color: white;
+  margin-left: 50%;
+   justify-content: end;
+  justify-items: end;
+  width: 50%;
+}
+.before-bottom .left{
+  margin-left: auto;
+  background-color: white;
+  justify-content: end;
+  justify-items: end;
+  width: 50%;}
+   */
+.btn-hit{
   display: inline-block;
   outline: 0;
   border: none;
@@ -110,19 +165,57 @@ body {
   border-radius: 4px;
   font-size: 13px;
   height: 30px;
-  background-color: #9147ff;
+  background-color: #00ff0d;
   color: white;
   padding: 0 10px;
 }
-.btn:hover {
-  background-color: #772ce8;
+
+.btn-stand {
+  display: inline-block;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 30px;
+  background-color: #00e1ff;
+  color: white;
+  padding: 0 10px;
+}
+
+.btn-restart{
+  display: inline-block;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 30px;
+  background-color: #ff0000;
+  color: white;
+  padding: 0 10px;
+}
+
+.btn-restart:hover {
+  background-color: #fa6060;
+}
+
+.btn-hit:hover {
+  background-color: #4dff5b;
+}
+
+.btn-stand:hover {
+  background-color: #55effa;
 }
 
 .item {
   padding: 20px;
 }
 .divScore {
-  color: #1b18e4;
+  font-size: 25px;;
+  color: #000000;
   align-self: center;
   justify-content: right;
   margin: 0 auto;
@@ -137,9 +230,9 @@ body {
 }
 
 .item {
-    top: 30%;
-    left: 45%;
-  position: absolute;
+  top: 30%;
+  left: 45%;
+  position: fixed;
   min-height: 500px;
   justify-content: center;
   align-self: center;
