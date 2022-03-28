@@ -1,7 +1,6 @@
 #img img {
   margin-left: -100px;
   width: 150px;
-  
 }
 
 #img img:first-child {
@@ -46,10 +45,10 @@
   display: flex;
 }
 .box {
-    height: 100%;
-    background: transparent;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+  height: 100%;
+  background: transparent;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
@@ -63,47 +62,53 @@
   margin-right: 10px;
 }
 
-.network{
+.network {
   color: #fff;
   margin-left: 10px;
 }
 
 body {
-    font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    background-image: url("../assets/img/game.jpg");
-    background-size: auto;
-    -webkit-background-size: cover; 
-    background-size:cover; 
-    background-position: top;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-image: url("../assets/img/game.jpg");
+  background-size: auto;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .top {
-    height: 50px;
-    background-color: rgb(216, 216, 216);
-    color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+  height: 50px;
+  background-color: rgb(216, 216, 216);
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    background: linear-gradient(90deg, #787878 0%,
-                                       #b5b5b5 25%,
-                                       #e3e3e3 50%,
-                                       #b5b5b5 75%,
-                                       #787878 100%);
-  }
+  background: linear-gradient(
+    90deg,
+    #787878 0%,
+    #b5b5b5 25%,
+    #e3e3e3 50%,
+    #b5b5b5 75%,
+    #787878 100%
+  );
+}
 
 .bottom {
-    height: 50px;
-    background-color: rgb(216, 216, 216);
-    color: #fff;
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+  height: 50px;
+  background-color: rgb(216, 216, 216);
+  color: #fff;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    background: linear-gradient(90deg, #7e7e7e 0%,
-                                       #e3e3e3 25%,
-                                       #787878 50%,
-                                       #e3e3e3 75%,
-                                       #7e7e7e 100%);
+  background: linear-gradient(
+    90deg,
+    #7e7e7e 0%,
+    #e3e3e3 25%,
+    #787878 50%,
+    #e3e3e3 75%,
+    #7e7e7e 100%
+  );
 }
 .bottom {
   position: absolute;
@@ -113,22 +118,22 @@ body {
 .before-bottom {
   position: absolute;
   bottom: 50px;
-  display:flex;
-  width:100%;
+  display: flex;
+  width: 100%;
 }
 
-.before-bottom .right,.before-bottom .left {
-  width:50%;
+.before-bottom .right,
+.before-bottom .left {
+  width: 50%;
   margin-bottom: 15px;
   padding: 0 10px;
-  
 }
-.before-bottom .right{
+.before-bottom .right {
   display: flex;
   justify-content: end;
 }
-.before-bottom button{
-  margin-left:  10px;
+.before-bottom button {
+  margin-left: 10px;
   width: 85px;
   height: 85px;
   border-radius: 100%;
@@ -156,7 +161,7 @@ body {
   justify-items: end;
   width: 50%;}
    */
-.btn-hit{
+.btn-hit {
   display: inline-block;
   outline: 0;
   border: none;
@@ -184,7 +189,7 @@ body {
   padding: 0 10px;
 }
 
-.btn-restart{
+.btn-restart {
   display: inline-block;
   outline: 0;
   border: none;
@@ -214,7 +219,7 @@ body {
   padding: 20px;
 }
 .divScore {
-  font-size: 25px;;
+  font-size: 25px;
   color: #000000;
   align-self: center;
   justify-content: right;
@@ -233,7 +238,7 @@ body {
   top: 30%;
   left: 45%;
   position: fixed;
-  min-height: 500px;
+  /* min-height: 500px; */
   justify-content: center;
   align-self: center;
 }
