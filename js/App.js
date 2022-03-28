@@ -49,6 +49,16 @@ document.addEventListener("keypress", function (e) {
   }
 });
 
+// document.addEventListener("keypress", function (e) {
+//   if (e.key === "r") {
+//     console.log("restart");
+//     if (game.isEnd) {
+//       console.log("finished");
+//       restart();
+//     }
+//   }
+// });
+
 const onlineText =
   '<p>Network status : <span style="color:green">Online</span> </p>';
 const offlineText =
