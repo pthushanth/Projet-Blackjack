@@ -10,6 +10,13 @@ const scoreAfterDiv = document.getElementById("scoreAfter");
 const resultDiv = document.getElementById("result");
 const RemainingCardsDiv = document.getElementById("remainingCards");
 const networkStatusDiv = document.getElementById("networkStatus");
+const modalLose = document.getElementById('modal-lose');
+const contentLose = document.getElementById('content-lose');
+const modalWin = document.getElementById('modal-win');
+const contentWin = document.getElementById('content-win');
+const modalBj = document.getElementById('modal-bj');
+const contentBj = document.getElementById('content-bj');
+
 let newImg;
 let vibrateDuration;
 const game = await Game.create();
@@ -48,14 +55,34 @@ const gameEnd = () => {
   buttonStand.disabled = true;
   if (game.player.isWin) {
     vibrateDuration = [300, 100, 300, 100, 300];
-    resultDiv.innerHTML = "<h1 style='color:green'>You Won !</h1>";
-    
+    //resultDiv.innerHTML = "<div class='modal-win'><h1 class='title'>You Won !</h1><div class='text-modal'><p>'You won because your score futur would be'" + game.player.scoreAfterHold + "' and it's over than 21'</p></div></div>"
+    modalWin.style.display = "block";
+    const text = `You won because your score is ${game.player.score} &#128513;`;
+    contentWin.innerHTML = text;
+    buttonRestart.onclick = function() {
+      modalWin.style.display = "none";
+    }
+
+    if(game.player.score == "21"){
+      //console.log("blackjack");
+      modalBj.style.display = "block";
+      const text = `Congrats ! You won because your score is ${game.player.score} and it\s BLACKJACK !!!!!!!! &#129321;&#129321;&#129321;`;
+      contentBj.innerHTML = text;
+      buttonRestart.onclick = function() {
+        modalBj.style.display = "none";
+      }
+    }
   } else {
     vibrateDuration = [
       100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100,
     ];
-    resultDiv.innerHTML = "<h1 style='color:red'>You Lost !</h1>";
-   
+   // resultDiv.innerHTML = "<div class='modal-lose'><h1 class='title'>You Lost !</h1><div class='text-modal'><p>'You lost because your score futur would be'" + game.player.scoreAfterHold + "' and it's under than 21'</p></div></div>"
+   modalLose.style.display = "block";
+    const text = `You lost because your score is ${game.player.score} &#128557;&#128557;&#128557;`;
+    contentLose.innerHTML = text;
+    buttonRestart.onclick = function() {
+      modalLose.style.display = "none";
+    }
   }
 };
 
@@ -69,21 +96,30 @@ const hold = async () => {
     buttonTake.disabled = true;
     buttonStand.disabled = true;
     if (game.player.isWin) {
-    //   resultDiv.innerHTML = "<div id='open-modal-win' class='modal-window-win'><div><a href='#' title='Close' class='modal-close-win'>Close</a><h1>You Won !</h1><div><p>'You won because your score futur '" + game.player.scoreAfterHold + "' is over 21'</p></div></div></div>"
-    resultDiv.innerHTML = "<h1 style='color:red'>You Won !</h1>";
-    scoreAfterDiv.innerHTML =
-        "You won because your score futur " +
-        game.player.scoreAfterHold +
-        " is over 21";
-    } else {
-      resultDiv.innerHTML = "<h1 style='color:red'>You Lost !</h1>";
-      scoreAfterDiv.innerHTML =
-        "You lost because your futur " +
-        game.player.scoreAfterHold +
-        " is under 21";
+   // resultDiv.innerHTML = "<div class='modal-win'><h1 class='title'>You Won !</h1><div class='text-modal'><p>'You won because your score futur would be'" + game.player.scoreAfterHold + "' and it's over than 21'</p></div</div>"
+    modalWin.style.display = "block";
+    const text = `You won because your score futur would be ${game.player.scoreAfterHold} and it\'s over than 21`;
+    contentWin.innerHTML = text;
+    buttonRestart.onclick = function() {
+      modalWin.style.display = "none";
     }
+    } else {
+      modalLose.style.display = "block";
+      const text = `You lost because your score futur would be ${game.player.scoreAfterHold} and it\'s under than 21`;
+      contentLose.innerHTML = text;
+      buttonRestart.onclick = function() {
+        modalLose.style.display = "none";
+      }
+      // resultDiv.innerHTML ='<div id="modal-lose" class="modal-lose"><h1 class="title">You Lost !</h1><div class="text-modal"><p>You lost because your score futur would be"' + game.player.scoreAfterHold + '" and it\'s under than 21</p><button class="btn-restart" id="restart">Restart</button></div>'
+      // scoreAfterDiv.innerHTML =
+      //   "You lost because your futur " +
+      //   game.player.scoreAfterHold +
+      //   " is under 21";
+    }
+    
   }
 };
+
 const displayCardImage = (img) => {
   newImg = document.createElement("img");
   newImg.onload = () => {
@@ -97,6 +133,7 @@ const displayCardImage = (img) => {
   //   newImg.src = img;
   // });
 };
+
 const displayHoldCardImage = (img) => {
   newImg = document.createElement("img");
   newImg.style.marginTop = "-100px";
@@ -145,6 +182,16 @@ document.addEventListener("keypress", function (e) {
   }
 });
 
+// document.addEventListener("keypress", function (e) {
+//   if (e.key === "r") {
+//     console.log("restart");
+//     if (game.isEnd) {
+//       console.log("finished");
+//       restart();
+//     }
+//   }
+// });
+
 const onlineText =
   '<p>Network status : <span style="color:green">Online</span> </p>';
 const offlineText =
@@ -171,6 +218,17 @@ window.addEventListener("userproximity", function (event) {
     }
   }
 });
+
+function close() {
+  var x = document.getElementById("close");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+
 // const checkOnlineStatus = async () => {
 //   try {
 //     const online = await fetch("http://www.1x1px.me/");
