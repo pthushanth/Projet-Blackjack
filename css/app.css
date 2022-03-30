@@ -7,6 +7,7 @@
   /* margin-left: 50px; */
 }
 
+
 /* loader */
 .loader {
   width: 3rem;
@@ -235,8 +236,9 @@ body {
 }
 
 .item {
-  top: 30%;
-  left: 45%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   position: fixed;
   /* min-height: 500px; */
   justify-content: center;
@@ -322,5 +324,42 @@ body {
 .text-modal{
   margin-left: 1em;
   margin-right: 1em;
+}
+
+
+/*Mobile */
+@media screen and (max-width: 480px) {
+  #img img {
+    margin-left: -100px;
+    width: 40px;
+  }
+
+  .item {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* min-height: 500px; */
+    justify-content: center;
+    align-self: center;
+  }
+
+}
+
+
+/*Tablet */
+@media screen and (max-width: 820px) {
+  #img img {
+    margin-left: -100px;
+    width: 130px;
+  }
+  .item {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    /* min-height: 500px; */
+    justify-content: center;
+    align-self: center;
+  }
 }
 
