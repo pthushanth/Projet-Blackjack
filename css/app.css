@@ -249,36 +249,35 @@ body {
   margin: 0 auto;
 }
 
-/**modal win*/
-.modal-win {
+
+#modalResult{
   height: 200px;
+  width: 400px;
+  border-radius: 5px;
+  position: fixed;
+  left: 50%;
+  top: 25%;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /* display: none; */
+
+}
+/**modal win*/
+#modalResult.won{
   background: rgb(194,194,194);
   background: linear-gradient(90deg, rgba(194,194,194,1) 0%, rgba(82,232,61,1) 35%, rgba(13,209,72,1) 85%, rgba(7,129,54,1) 100%); 
-  width: 400px;
-  border-radius: 5px;
-  position: fixed;
-  left: 50%;
-  top: 25%;
-  border-radius: 10px;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  display: none;
+  
 }
-
-.modal-lose {
-  height: 200px;
+#modalResult.lost {
   background: rgb(255,189,149);
   background: linear-gradient(90deg, rgba(255,189,149,1) 0%, rgba(253,29,29,1) 50%, rgba(99,21,6,1) 100%); 
-  width: 400px;
-  border-radius: 5px;
-  position: fixed;
-  left: 50%;
-  top: 25%;
-  border-radius: 10px;
   color: white;
   text-align: center;
-  transform: translate(-50%, -50%);
-  display: none;
+}
+#modalResult .modal-header{
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .modal-bj{
@@ -321,10 +320,7 @@ body {
   text-align: center;
 }
 
-.text-modal{
-  margin-left: 1em;
-  margin-right: 1em;
-}
+
 
 
 /*Mobile */
