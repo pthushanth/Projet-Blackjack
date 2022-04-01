@@ -12,7 +12,6 @@ export const hit = async (game) => {
   if (buttonRestart.disabled) buttonRestart.disabled = false;
   await game.player.hitMe();
   const cardImg = game.player.cards[game.player.cards.length - 1].images["png"];
-
   var img = document.getElementById("img").getElementsByTagName("img");
   console.log(img[0]);
 

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/app.css" />
     <title>Blackjack</title>
   </head>
+
   <body>
     <section id="game">
       <div class="container box">
@@ -17,80 +18,44 @@
           <div id="remainingCards" class="remainingCards"></div>
         </div>
 
-        <!-- <div id="modalResult">
-          <h1 class="title"></h1>
-          <div class="modal-header">
-            <p class="modal-content"></p>
-            <button class="btn-restart" id="btnRestart"></button>
-          </div>
-        </div> -->
-
         <div id="modalResult"></div>
 
-        <!-- <div class="lost">
-          <div id="modal-lose" class="modal-lose">
-            <h1 class="title">You Lost !</h1>
-            <div class="modal-header">
-              <p id="content-lose"></p>
-              <button class="btn-restart" id="restart1">restart</button>
-            </div>
+        <div class="item">
+          <div id="loader" class="loader"></div>
+          <div id="img"></div>
+          <div id="scoreAfter"></div>
+        </div>
+
+        <div class="before-bottom">
+          <div class="left">
+            <button class="btn-hit" id="takeCard">
+              <img src="/assets/img/hit.png" height="60" width="70" />
+            </button>
+          </div>
+
+          <div class="right">
+            <button class="btn-stand" id="stand">
+              <img
+                src="/assets/img/hold.png"
+                height="50"
+                width="50"
+                style="margin-right: 10px"
+              />
+            </button>
+            <button class="btn-restart" id="restart">
+              <img
+                src="/assets/img/restart.png"
+                height="50"
+                width="50"
+                style="margin-left: 1px"
+              />
+            </button>
           </div>
         </div>
-        <div class="won">
-          <div id="modal-win" class="modal-win">
-            <h1 class="title">You Won !</h1>
-            <div class="modal-header">
-              <p id="content-win"></p>
-              <button class="btn-restart" id="restart2">restart</button>
-            </div>
-          </div>
-        </div> -->
-        <div class="blackjack">
-          <div id="modal-bj" class="modal-bj">
-            <h1 class="title">Blackjack !</h1>
-            <div class="modal-header">
-              <p id="content-bj"></p>
-              <button class="btn-restart" id="restart3">restart</button>
-            </div>
-          </div>
 
-          <div class="item">
-            <div id="loader" class="loader"></div>
-            <div id="img"></div>
-            <div id="scoreAfter"></div>
-          </div>
-
-          <div class="before-bottom">
-            <div class="left">
-              <button class="btn-hit" id="takeCard">
-                <img src="/assets/img/hit.png" height="60" width="70" />
-              </button>
-            </div>
-
-            <div class="right">
-              <button class="btn-stand" id="stand">
-                <img
-                  src="/assets/img/hold.png"
-                  height="50"
-                  width="50"
-                  style="margin-right: 10px"
-                />
-              </button>
-              <button class="btn-restart" id="restart">
-                <img
-                  src="/assets/img/restart.png"
-                  height="50"
-                  width="50"
-                  style="margin-left: 1px"
-                />
-              </button>
-            </div>
-          </div>
-
-          <div class="bottom container">
-            <div class="divScore">
-              <div id="score"></div>
-            </div>
+        <div class="bottom container">
+          <div class="divScore">
+            <div id="score"></div>
           </div>
         </div>
       </div>

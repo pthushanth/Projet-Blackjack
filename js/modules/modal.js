@@ -10,6 +10,9 @@ export default function (game, result, title = null) {
   } else if (result === "lost") {
     content = `You lost because your score is ${score} &#128557;&#128557;&#128557;`;
     title = "You Lost !";
+  } else if (result === "blackjack") {
+    content = `Congrats ! You won because your score is ${score} and it\s BLACKJACK !!!!!!!! &#129321;&#129321;&#129321;`;
+    title = "BLACKJACK !";
   }
 
   divModalResult.classList.add(result);

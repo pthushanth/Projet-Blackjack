@@ -9,13 +9,7 @@ export const gameEnd = (game) => {
     setVibration([300, 100, 300, 100, 300]);
 
     if (game.player.score == "21") {
-      //console.log("blackjack");
-      modalBj.style.display = "block";
-      const text = `Congrats ! You won because your score is ${game.player.score} and it\s BLACKJACK !!!!!!!! &#129321;&#129321;&#129321;`;
-      contentBj.innerHTML = text;
-      buttonRestart.onclick = function () {
-        modalBj.style.display = "none";
-      };
+      showModalResult(game, "blackjack");
     }
   } else {
     setVibration([

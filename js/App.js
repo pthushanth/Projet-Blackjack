@@ -74,15 +74,6 @@ window.addEventListener("userproximity", function (event) {
   }
 });
 
-// function close() {
-//   var x = document.getElementById("close");
-//   if (x.style.display === "none") {
-//     x.style.display = "block";
-//   } else {
-//     x.style.display = "none";
-//   }
-// }
-
 // const checkOnlineStatus = async () => {
 //   try {
 //     const online = await fetch("http://www.1x1px.me/");
