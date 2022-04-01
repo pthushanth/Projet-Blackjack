@@ -24,7 +24,7 @@ class Player {
     console.log(card.value);
     console.log(points);
     this.scoreAfterHold = this.score + points;
-    if (this.scoreAfterHold > 21) {
+    if (this.scoreAfterHold >= 21) {
       this.isWin = true;
     } else {
       this.win = false;
