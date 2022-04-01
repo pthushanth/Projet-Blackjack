@@ -41,9 +41,9 @@ export const displayRemainingCards = (remainingCard) => {
 export const showNetworkStatus = (status) => {
   let text;
   if (navigator.onLine || status === "online") {
-    text = '<p>Network status : <span style="color:green">Online</span> </p>';
+    text = '<p>Network status : <span>🟢</span> </p>';
   } else {
-    text = '<p>Network status : <span style="color:red">Offline</span></p>';
+    text = '<p>Network status : <span>🔴</span></p>';
   }
   networkStatusDiv.innerHTML = text;
 };

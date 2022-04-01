@@ -11,12 +11,6 @@ export default function (game, result, message = null) {
   } else if (result === "lost") {
     content = `So bad ! You lost because your score is ${score} 😭😭😭 `;
     title = "You Lost 👎!";
-  }else if (result === "wonAfterHold") {
-    content = `Well done ! You won because your score futur would be ${score} and it\'s over than 21 !! 😏🤙`;
-    title = "You Won 👌!";
-  } else if (result === "lostAfterHold") {
-    content = `You lost because your score futur would be ${score} and it\'s under than 21... 😒😒😒`;
-    title = "You Lost 👎!";
   } else if (result === "blackjack") {
     content = `Congrats ! You won because your score is ${score} and it\s BLACKJACK !!!! 🤩🤩🤩`;
     title = "BLACKJACK 🎉🎊 !!!";
