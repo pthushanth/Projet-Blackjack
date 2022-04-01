@@ -4,29 +4,24 @@ import {
   buttonTake,
   buttonStand,
   buttonRestart,
-  scoreDiv,
-  networkStatusDiv,
-  imgDiv,
   buttonUndo,
 } from "./modules/domElements.js";
 import { hit } from "./modules/hit.js";
 import { hold } from "./modules/hold.js";
-import {
-  displayCardImage,
-  displayRemainingCards,
-  displayScore,
-} from "./modules/display.js";
+
 import { undo } from "./modules/undo.js";
+import { displayScore, showNetworkStatus } from "./modules/display.js";
 
 const game = await Game.create();
 buttonRestart.disabled = true;
+buttonUndo.disabled = true;
+buttonStand.disabled = true;
+
 if (game.player.score == 0) {
-  const startScore = `Score : -- `;
-  scoreDiv.innerHTML = startScore;
+  displayScore("--");
 }
 
 buttonTake.addEventListener("click", () => {
-  buttonUndo.disabled = false;
   hit(game);
 });
 buttonStand.addEventListener("click", () => {
@@ -35,9 +30,8 @@ buttonStand.addEventListener("click", () => {
 buttonRestart.addEventListener("click", () => {
   restart(game);
 });
-
 buttonUndo.addEventListener("click", () => {
-  if (game.player.cards.length > 1) undo(game);
+  if (game.player.cards.length >= 1 && !game.isEnd) undo(game);
 });
 
 document.addEventListener("keypress", function (e) {
@@ -49,23 +43,13 @@ document.addEventListener("keypress", function (e) {
   }
 });
 
-const onlineText =
-  '<p>Network status : <span style="color:green">Online</span> </p>';
-const offlineText =
-  '<p>Network status : <span style="color:red">Offline</span></p>';
-
-if (navigator.onLine) {
-  networkStatusDiv.innerHTML = onlineText;
-} else {
-  networkStatusDiv.innerHTML = offlineText;
-}
-
+showNetworkStatus();
 window.addEventListener("online", function (e) {
-  networkStatusDiv.innerHTML = onlineText;
+  showNetworkStatus("online");
 });
 
 window.addEventListener("offline", function (e) {
-  networkStatusDiv.innerHTML = offlineText;
+  showNetworkStatus("offline");
 });
 
 window.addEventListener("userproximity", function (event) {

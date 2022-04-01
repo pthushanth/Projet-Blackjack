@@ -1,4 +1,9 @@
-import { imgDiv, remainingCardsDiv, scoreDiv } from "./domElements.js";
+import {
+  imgDiv,
+  networkStatusDiv,
+  remainingCardsDiv,
+  scoreDiv,
+} from "./domElements.js";
 
 let newImg;
 export const displayCardImage = (img) => {
@@ -31,4 +36,14 @@ export const displayScore = (score) => {
 
 export const displayRemainingCards = (remainingCard) => {
   remainingCardsDiv.innerHTML = "Remaining : " + remainingCard + " cards";
+};
+
+export const showNetworkStatus = (status) => {
+  let text;
+  if (navigator.onLine || status === "online") {
+    text = '<p>Network status : <span style="color:green">Online</span> </p>';
+  } else {
+    text = '<p>Network status : <span style="color:red">Offline</span></p>';
+  }
+  networkStatusDiv.innerHTML = text;
 };

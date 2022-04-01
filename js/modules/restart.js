@@ -1,6 +1,8 @@
 import {
+  buttonRestart,
   buttonStand,
   buttonTake,
+  buttonUndo,
   divModalResult,
   imgDiv,
   remainingCardsDiv,
@@ -18,8 +20,10 @@ export const restart = async (game) => {
   scoreAfterDiv.innerHTML = "";
   resultDiv.innerHTML = "";
   remainingCardsDiv.innerHTML = "";
+  buttonRestart.disabled = true;
+  buttonUndo.disabled = true;
+  buttonStand.disabled = true;
   buttonTake.disabled = false;
-  buttonStand.disabled = false;
   await game.restart(game);
   hit(game);
 };
