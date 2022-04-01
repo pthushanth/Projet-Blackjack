@@ -26,8 +26,8 @@ class Game {
     return game;
   }
 
-  restart() {
-    this.init();
+  async restart() {
+    await this.init();
     this.isStart = true;
     this.isEnd = false;
   }

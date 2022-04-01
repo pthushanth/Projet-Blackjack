@@ -6,16 +6,31 @@ class Player {
     this.deck = deck;
     this.game = game;
     this.isWin = false;
+    this.scoreAfterHold = 0;
   }
 
   async hitMe() {
     let card = await this.deck.drawCard();
+    console.log(card.value);
+
     this.cards.push(card);
-    console.log(card);
     this.addScore(card.value);
   }
 
-  hold() {}
+  async hold() {
+    let card = await this.deck.drawCard();
+    this.cards.push(card);
+    let points = this.getCardIntValue(card.value);
+    console.log(card.value);
+    console.log(points);
+    this.scoreAfterHold = this.score + points;
+    if (this.scoreAfterHold > 21) {
+      this.isWin = true;
+    } else {
+      this.win = false;
+    }
+    this.game.isEnd = true;
+  }
 
   addScore(cardValue) {
     let points = this.getCardIntValue(cardValue);
@@ -28,9 +43,6 @@ class Player {
       this.win = false;
       this.game.isEnd = true;
     }
-    // console.log("card value :" + cardValue);
-    // console.log("card point :" + points);
-    console.log("score : " + this.score);
   }
 
   getCardIntValue = (cardValue) => {

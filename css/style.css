@@ -1,0 +1,360 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 70%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*title*/
+.container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: #333;
+}
+h1 {
+  text-align: center;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-size: 60px;
+  color: #fff;
+  margin: 0 auto;
+}
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 30px;
+  }
+}
+.animation {
+  position: relative;
+  width: 100%;
+}
+.animation div {
+  overflow: hidden;
+  width: 50%;
+  height: 100%;
+  transform: skewX(-20deg);
+}
+.animation div::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 4px;
+  background: #fff;
+}
+.animation span {
+  padding: 0 10px;
+}
+.animation-left::before {
+  left: 0;
+  animation: widthLineLeft 1.2s 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.1) forwards;
+}
+.animation-left span {
+  display: block;
+  animation: slideLeft 1.2s 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.1) forwards;
+  transform: translateX(200px) skewX(20deg);
+}
+.animation-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.animation-right:before {
+  bottom: 0;
+  right: 0;
+  animation: widthLineRight 1.2s 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.1) forwards;
+}
+.animation-right span {
+  position: absolute;
+  width: 100%;
+  left: -100%;
+  transform: translateX(-200px) skewX(20deg);
+  animation: slideRight 1.2s 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.1) forwards;
+}
+@keyframes slideLeft {
+  from {
+    transform: translateX(200px) skewX(20deg);
+  }
+  to {
+    transform: translateX(0%) skewX(20deg);
+  }
+}
+@keyframes slideRight {
+  from {
+    transform: translateX(-200px) skewX(20deg);
+  }
+  to {
+    transform: translateX(0%) skewX(20deg);
+  }
+}
+@keyframes widthLineLeft {
+  0% {
+    width: 0%;
+    left: 0%;
+  }
+  50% {
+    width: 100%;
+    left: 0%;
+  }
+  100% {
+    width: 0%;
+    left: 100%;
+  }
+}
+@keyframes widthLineRight {
+  0% {
+    width: 0%;
+    right: 0%;
+  }
+  50% {
+    width: 100%;
+    right: 0%;
+  }
+  100% {
+    width: 0%;
+    right: 100%;
+  }
+}
+
+/*card */
+
+.hand{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:25vh;
+}
+
+.card{
+  margin-top:-10px;
+  position:absolute;
+  width:100px;
+  height:150px;
+  border:1px solid black;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-color:white;
+  
+  -webkit-box-shadow: -10px 0px 30px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: -10px 0px 30px -6px rgba(0,0,0,0.75);
+  box-shadow: -10px 0px 30px -6px rgba(0,0,0,0.75);
+}
+
+@keyframes slideleft {
+  0%    { opacity: 0;
+  transform: translateX(-150px);}
+  100%  { opacity: 1;
+    transform: translateX(0px);}
+}
+
+
+@keyframes slideup {
+  0%    { opacity: 0;
+  transform: translateY(-150px)}
+  100%  { opacity: 1;
+    transform: translateY(0px);}
+}
+
+.animate-this-element {
+  animation: slideleft 0.5s;
+}
+
+.slide-up {
+  animation: slideup 0.5s;
+  animation-delay: 0.5;
+}
+
+.topLeft{
+  align-self:flex-start;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-size: 11px;
+}
+
+.topLeft p{
+  margin:0;
+  padding:0;
+  font-size:20px;
+}
+
+.bottomRight{
+  -webkit-transform:rotateX(180deg);
+  align-self:flex-end;
+  position: absolute;
+  bottom: 20px;
+  right: 16px;
+  font-size: 18px;
+}
+
+.bottomRight p{
+  margin:0;
+  padding:0;
+  font-size:20px;
+  
+}
+
+.suit{
+  padding:0;
+  margin:0;
+  font-size:50px;
+}
+
+.red{
+  color:red;
+}
+
+.hearts{
+  transform:rotate(-40deg);
+  margin-left:-100px;
+}
+
+.diams{
+  transform:rotate(0deg);
+  margin-left:0px;
+  margin-top:10px;
+}
+
+.clubs{
+  transform:rotate(20deg);
+  margin-left:40px;
+  margin-top:50px;
+}
+
+.spades{
+  transform:rotate(-20deg);
+  margin-left:-50px;
+}
+
+.btn-play {
+  background-color: #2d6a4f;
+  padding: 1em 4em;
+  margin: -10px auto;
+  border-radius: 1em;
+  margin-top: 25em;
+  cursor: pointer;
+}
+
+.btn-play > a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bolder;
+  font-size: 1.3em
+}
+
+.btn-play:hover {
+ background-color: #40916c;
+ transition: 0.3s;
+}
+
+
+/*loading*/
+
+.cards {
+  position: relative;
+  margin: 50px auto;
+  height: 75px;
+  width: 50px;
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: bold;
+}
+.cards .card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  background-color: #fff;
+  border-radius: 7px;
+  padding-left: 5px;
+  box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+}
+.cards p {
+  font-size: 0.5em;
+  position: absolute;
+  bottom: -45px;
+  left: -13px;
+  margin: 0;
+}
+.cards .one {
+  animation-name: anim-one;
+}
+@keyframes anim-one {
+  from {
+    transform: translate(0) rotate(0deg);
+ }
+  50% {
+    transform: translate(-30px, 5px) rotate(-45deg);
+ }
+  to {
+    transform: translate(0) rotate(0deg);
+ }
+}
+.cards .two {
+  animation-name: anim-two;
+}
+@keyframes anim-two {
+  from {
+    transform: translate(0) rotate(0deg);
+ }
+  50% {
+    transform: translate(-15px) rotate(-25deg);
+ }
+  to {
+    transform: translate(0) rotate(0deg);
+ }
+}
+.cards .three {
+  animation-name: anim-three;
+}
+@keyframes anim-three {
+  from {
+    transform: translate(0) rotate(0deg);
+ }
+  50% {
+    transform: rotate(-5deg);
+ }
+  to {
+    transform: translate(0) rotate(0deg);
+ }
+}
+.cards .four {
+  animation-name: anim-five;
+}
+@keyframes anim-five {
+  from {
+    transform: translate(0) rotate(0deg);
+ }
+  50% {
+    transform: translate(15px, 5px) rotate(15deg);
+ }
+  to {
+    transform: translate(0) rotate(0deg);
+ }
+}
+.cards .five {
+  animation-name: anim-eight;
+}
+@keyframes anim-eight {
+  from {
+    transform: translate(0) rotate(0deg);
+ }
+  50% {
+    transform: translate(28px, 14px) rotate(35deg);
+ }
+  to {
+    transform: translate(0) rotate(0deg);
+ }
+}
+
+
