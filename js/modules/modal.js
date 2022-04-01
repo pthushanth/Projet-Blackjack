@@ -6,14 +6,20 @@ export default function (game, result, message = null) {
   let title;
   let content;
   if (result === "won") {
-    content = `You won because your score is ${score} &#128513;`;
-    title = "You Won !";
+    content = `Good Job ! You won because your score is ${score} &#128513; 😎🙌`;
+    title = "You Won 👏!";
   } else if (result === "lost") {
-    content = `You lost because your score is ${score} &#128557;&#128557;&#128557;`;
-    title = "You Lost !";
+    content = `So bad ! You lost because your score is ${score} 😭😭😭 `;
+    title = "You Lost 👎!";
+  }else if (result === "wonAfterHold") {
+    content = `Well done ! You won because your score futur would be ${score} and it\'s over than 21 !! 😏🤙`;
+    title = "You Won 👌!";
+  } else if (result === "lostAfterHold") {
+    content = `You lost because your score futur would be ${score} and it\'s under than 21... 😒😒😒`;
+    title = "You Lost 👎!";
   } else if (result === "blackjack") {
-    content = `Congrats ! You won because your score is ${score} and it\s BLACKJACK !!!!!!!! &#129321;&#129321;&#129321;`;
-    title = "BLACKJACK !";
+    content = `Congrats ! You won because your score is ${score} and it\s BLACKJACK !!!! 🤩🤩🤩`;
+    title = "BLACKJACK 🎉🎊 !!!";
   }
   if (message !== null) content = message;
 

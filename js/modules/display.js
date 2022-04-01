@@ -35,7 +35,7 @@ export const displayScore = (score) => {
 };
 
 export const displayRemainingCards = (remainingCard) => {
-  remainingCardsDiv.innerHTML = "Remaining : " + remainingCard + " cards";
+  remainingCardsDiv.innerHTML = "Remaining : " + remainingCard + "<img src='/assets/img/deck.png'>";
 };
 
 export const showNetworkStatus = (status) => {
