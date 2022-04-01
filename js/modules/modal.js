@@ -1,8 +1,8 @@
+import { divModalResult } from "./domElements.js";
 import { restart } from "./restart.js";
 
 export default function (game, result, message = null) {
   let score = game.player.score;
-  const divModalResult = document.getElementById("modalResult");
   let title;
   let content;
   if (result === "won") {

@@ -1,6 +1,7 @@
 import {
   buttonStand,
   buttonTake,
+  divModalResult,
   imgDiv,
   remainingCardsDiv,
   resultDiv,
@@ -10,6 +11,8 @@ import {
 import { hit } from "./hit.js";
 
 export const restart = async (game) => {
+  divModalResult.innerHTML = "";
+  divModalResult.className = "";
   imgDiv.innerHTML = "";
   scoreDiv.innerHTML = "";
   scoreAfterDiv.innerHTML = "";
