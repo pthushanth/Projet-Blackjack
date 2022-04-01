@@ -55,9 +55,15 @@ class Player {
       )
         cardValue = "10";
     }
-    // console.log(typeof(cardValue)+" --- "+cardValue)
-
     return Number(cardValue);
+  };
+
+  undoHit = () => {
+    let lastCard = this.cards.pop();
+    console.log({ lastCard });
+    let lastCardValue = this.getCardIntValue(lastCard.value);
+    console.log(-lastCardValue);
+    this.addScore(-lastCardValue);
   };
 }
 

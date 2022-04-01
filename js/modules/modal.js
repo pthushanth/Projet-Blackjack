@@ -1,8 +1,9 @@
 import { restart } from "./restart.js";
 
-export default function (game, result, title = null) {
+export default function (game, result, message = null) {
   let score = game.player.score;
   const divModalResult = document.getElementById("modalResult");
+  let title;
   let content;
   if (result === "won") {
     content = `You won because your score is ${score} &#128513;`;
@@ -14,8 +15,9 @@ export default function (game, result, title = null) {
     content = `Congrats ! You won because your score is ${score} and it\s BLACKJACK !!!!!!!! &#129321;&#129321;&#129321;`;
     title = "BLACKJACK !";
   }
+  if (message !== null) content = message;
 
-  divModalResult.classList.add(result);
+  divModalResult.classList.add(result, "show");
   const h1 = document.createElement("h1");
   h1.classList.add("title");
   h1.append(document.createTextNode(title));
@@ -33,7 +35,7 @@ export default function (game, result, title = null) {
   button.append(document.createTextNode("restart"));
   button.addEventListener("click", () => {
     divModalResult.innerHTML = "";
-    divModalResult.classList.remove(result);
+    divModalResult.classList.remove(result, "show");
     restart(game);
   });
 

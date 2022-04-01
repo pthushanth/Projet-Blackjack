@@ -10,13 +10,11 @@ export const hold = async (game) => {
     buttonTake.disabled = true;
     buttonStand.disabled = true;
     if (game.player.isWin) {
-      const text = `You won because your score futur would be ${game.player.scoreAfterHold} and it\'s over than 21`;
-      console.log(text);
-      showModalResult(game, "won", text);
+      const message = `You won because your score futur would be ${game.player.scoreAfterHold} and it\'s over than 21`;
+      showModalResult(game, "won", message);
     } else {
-      const text = `You lost because your score futur would be ${game.player.scoreAfterHold} and it\'s under than 21`;
-      console.log(text);
-      showModalResult(game, "lost", text);
+      const message = `You lost because your score futur would be ${game.player.scoreAfterHold} and it\'s under than 21`;
+      showModalResult(game, "lost", message);
     }
   }
 };

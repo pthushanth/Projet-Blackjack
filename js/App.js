@@ -6,19 +6,27 @@ import {
   buttonRestart,
   scoreDiv,
   networkStatusDiv,
+  imgDiv,
+  buttonUndo,
 } from "./modules/domElements.js";
 import { hit } from "./modules/hit.js";
 import { hold } from "./modules/hold.js";
+import {
+  displayCardImage,
+  displayRemainingCards,
+  displayScore,
+} from "./modules/display.js";
+import { undo } from "./modules/undo.js";
 
 const game = await Game.create();
 buttonRestart.disabled = true;
-
 if (game.player.score == 0) {
   const startScore = `Score : -- `;
   scoreDiv.innerHTML = startScore;
 }
 
 buttonTake.addEventListener("click", () => {
+  buttonUndo.disabled = false;
   hit(game);
 });
 buttonStand.addEventListener("click", () => {
@@ -26,6 +34,10 @@ buttonStand.addEventListener("click", () => {
 });
 buttonRestart.addEventListener("click", () => {
   restart(game);
+});
+
+buttonUndo.addEventListener("click", () => {
+  if (game.player.cards.length > 1) undo(game);
 });
 
 document.addEventListener("keypress", function (e) {
@@ -36,16 +48,6 @@ document.addEventListener("keypress", function (e) {
     }
   }
 });
-
-// documenthit().addEventListener("keypress", function (e) {
-//   if (e.key === "r") {
-//     console.log("restart");
-//     if (game.isEnd) {
-//       console.log("finished");
-//       restart();
-//     }
-//   }
-// });
 
 const onlineText =
   '<p>Network status : <span style="color:green">Online</span> </p>';
@@ -73,22 +75,3 @@ window.addEventListener("userproximity", function (event) {
     }
   }
 });
-
-// const checkOnlineStatus = async () => {
-//   try {
-//     const online = await fetch("http://www.1x1px.me/");
-//     return online.status >= 200 && online.status < 300; // either true or false
-//   } catch (err) {
-//     return false; // offline
-//   }
-// };
-// setInterval(async () => {
-//   const result = await checkOnlineStatus();
-//   networkStatusDiv.innerHTML = result ? onlineText : offlineText;
-// }, 3000);
-
-// window.addEventListener("load", async (event) => {
-//   statusDisplay.innerHTML = (await checkOnlineStatus())
-//     ? onlineText
-//     : offlineText;
-// });

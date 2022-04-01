@@ -8,3 +8,4 @@ export const scoreAfterDiv = document.getElementById("scoreAfter");
 export const resultDiv = document.getElementById("result");
 export const remainingCardsDiv = document.getElementById("remainingCards");
 export const networkStatusDiv = document.getElementById("networkStatus");
+export const buttonUndo = document.getElementById("undo");
