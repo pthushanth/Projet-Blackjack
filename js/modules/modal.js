@@ -1,7 +1,8 @@
 import { divModalResult } from "./domElements.js";
 import { restart } from "./restart.js";
 
-export default function (game, result, message = null) {
+const divOverlay = document.getElementById("overlay");
+export function showModalResult(game, result, message = null) {
   let score = game.player.score;
   let title;
   let content;
@@ -29,18 +30,24 @@ export default function (game, result, message = null) {
   p.classList.add("modal-content", result);
   p.append(document.createTextNode(content));
   header.appendChild(p);
+  divOverlay.style.visibility = "visible";
 
   const button = document.createElement("button");
   button.classList.add("btn-restart");
   button.append(document.createTextNode("Restart"));
   button.addEventListener("click", () => {
-    divModalResult.innerHTML = "";
-    divModalResult.classList.remove(result, "show");
     restart(game);
+    RemoveModalResult();
   });
 
   header.appendChild(button);
 
   divModalResult.appendChild(h1);
   divModalResult.appendChild(header);
+}
+
+export function RemoveModalResult() {
+  divModalResult.innerHTML = "";
+  divModalResult.classList.remove(result, "show");
+  divOverlay.style.visibility = "hidden";
 }

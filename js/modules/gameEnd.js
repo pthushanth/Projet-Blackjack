@@ -1,6 +1,6 @@
 import { buttonStand, buttonTake, buttonUndo } from "./domElements.js";
 import { setVibration } from "./vibrate.js";
-import showModalResult from "./modal.js";
+import { showModalResult } from "./modal.js";
 
 export const gameEnd = (game) => {
   buttonTake.disabled = true;

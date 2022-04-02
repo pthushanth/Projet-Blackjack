@@ -1,6 +1,6 @@
 import { displayHoldCardImage } from "./display.js";
 import { buttonStand, buttonTake } from "./domElements.js";
-import showModalResult from "./modal.js";
+import { showModalResult } from "./modal.js";
 
 export const hold = async (game) => {
   buttonStand.disabled = true;
