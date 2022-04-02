@@ -3,6 +3,8 @@ class Deck {
     this.url = "https://deckofcardsapi.com/api/deck";
     this.id;
     this.remainingCard;
+    this.controller = new AbortController();
+    this.isPendingFetch = false;
     // this.init();
   }
 
@@ -26,42 +28,29 @@ class Deck {
   checkError(response) {
     if (response.status >= 200 && response.status <= 299) {
       return response.json();
+    }
+    if (err.name == "AbortError") {
+      // handle abort()
+      console.log("Aborted!");
     } else {
       throw Error(response.statusText);
     }
   }
 
   async drawCard() {
+    this.isPendingFetch = true;
+    console.log(this.isPendingFetch);
     let cards;
-    await fetch(`${this.url}/${this.id}/draw/?count=1`)
+    let signal = this.controller.signal;
+    await fetch(`${this.url}/${this.id}/draw/?count=1`, { signal })
       .then(this.checkError)
       .then((data) => {
         this.remainingCard = data.remaining;
         console.log(data);
         cards = data.cards[0];
+        this.isPendingFetch = false;
       });
-
     return cards;
-
-    // if (response.status >= 200 && response.status <= 299) {
-    //     const data = await response.json();
-    //     playerCards.push(data.cards[0])
-    //     remainingCard=data.remaining;
-    //     console.log(remainingCard)
-    //     addScore(data.cards[0]);
-    //           if (score > 21) {
-    //         alert("you lost")
-    //         startNewGame()
-    //         }
-    //         if (score == 21) {
-    //           alert("you won");
-    //           startNewGame()
-    //           }
-    //   } else {
-    //     // Handle errors
-    //     console.log(response.status, response.statusText);
-    //   }
-    // }
   }
 }
 

@@ -10,11 +10,14 @@ class Player {
   }
 
   async hitMe() {
-    let card = await this.deck.drawCard();
-    console.log(card.value);
+    console.log(this.deck);
+    if (!this.deck.isPendingFetch) {
+      let card = await this.deck.drawCard();
+      console.log(card.value);
 
-    this.cards.push(card);
-    this.addScore(card.value);
+      this.cards.push(card);
+      this.addScore(card.value);
+    }
   }
 
   async hold() {
@@ -64,6 +67,13 @@ class Player {
     let lastCardValue = this.getCardIntValue(lastCard.value);
     console.log(-lastCardValue);
     this.addScore(-lastCardValue);
+  };
+
+  cancelHit = () => {
+    if (this.deck.isPendingFetch) {
+      this.deck.controller.abort();
+      console.log("Take card aborted");
+    }
   };
 }
 

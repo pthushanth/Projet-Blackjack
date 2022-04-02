@@ -5,6 +5,7 @@ import {
   buttonStand,
   buttonRestart,
   buttonUndo,
+  loader,
 } from "./modules/domElements.js";
 import { hit } from "./modules/hit.js";
 import { hold } from "./modules/hold.js";
@@ -36,9 +37,20 @@ buttonUndo.addEventListener("click", () => {
 
 document.addEventListener("keypress", function (e) {
   if (e.key === "d") {
-    console.log("test");
-    if (game.isStart && !game.isEnd) {
+    console.log("kep*y 'd'");
+    if (game.isStart && !game.isEnd && !game.deck.isPendingFetch) {
       hit(game);
+    }
+  }
+});
+document.addEventListener("keypress", function (e) {
+  if (e.key === "c" || e.key === "C") {
+    if (game.deck.isPendingFetch) {
+      game.player.cancelHit();
+      if (loader.classList.contains("display")) {
+        loader.classList.remove("display");
+      }
+      // alert("Take card Canceled");
     }
   }
 });
