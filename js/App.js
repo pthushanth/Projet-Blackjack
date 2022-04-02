@@ -32,7 +32,7 @@ buttonRestart.addEventListener("click", () => {
   restart(game);
 });
 buttonUndo.addEventListener("click", () => {
-  if (game.player.cards.length >= 1 && !game.isEnd) undo(game);
+  if (game.player.cards.length >= 2 && !game.isEnd) undo(game);
 });
 
 document.addEventListener("keypress", function (e) {

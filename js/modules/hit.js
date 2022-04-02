@@ -28,6 +28,8 @@ export const hit = async (game) => {
     displayScore(game.player.score);
     displayRemainingCards(game.deck.remainingCard);
     buttonTake.disabled = false;
+    if (game.player.cards.length >= 1) buttonStand.disabled = false;
+    if (game.player.cards.length >= 2) buttonUndo.disabled = false;
     if (game.isEnd) {
       gameEnd(game);
     }

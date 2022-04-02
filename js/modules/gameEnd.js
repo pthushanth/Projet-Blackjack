@@ -1,10 +1,11 @@
-import { buttonStand, buttonTake } from "./domElements.js";
+import { buttonStand, buttonTake, buttonUndo } from "./domElements.js";
 import { setVibration } from "./vibrate.js";
 import showModalResult from "./modal.js";
 
 export const gameEnd = (game) => {
   buttonTake.disabled = true;
   buttonStand.disabled = true;
+  buttonUndo.disabled = true;
   if (game.player.isWin) {
     setVibration([300, 100, 300, 100, 300]);
 
