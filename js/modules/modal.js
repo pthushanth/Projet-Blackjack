@@ -32,7 +32,7 @@ export default function (game, result, message = null) {
 
   const button = document.createElement("button");
   button.classList.add("btn-restart");
-  button.append(document.createTextNode("restart"));
+  button.append(document.createTextNode("Restart"));
   button.addEventListener("click", () => {
     divModalResult.innerHTML = "";
     divModalResult.classList.remove(result, "show");

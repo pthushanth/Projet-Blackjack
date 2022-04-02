@@ -46,6 +46,7 @@
   bottom: -45px;
   left: -13px;
   margin: 0;
+  color: black;
 }
 .cards .one {
   animation-name: anim-one;
@@ -104,21 +105,6 @@
     transform: translate(0) rotate(0deg);
  }
 }
-/* .cards .five {
-  animation-name: anim-eight;
-}
-@keyframes anim-eight {
-  from {
-    transform: translate(0) rotate(0deg);
- }
-  50% {
-    transform: translate(28px, 14px) rotate(35deg);
- }
-  to {
-    transform: translate(0) rotate(0deg);
- }
-} */
-
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -128,13 +114,77 @@
   }
 }
 
+/*******************************************************popup-rules***************************************************/
+
+/* Popup container */
+.popup {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  z-index: 1;
+  color: white;
+  justify-content: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  top: 0%;
+  height: auto;
+  top: 100%;
+}
+
+.popup .popuptext > p{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 15%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgb(255, 255, 255) transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
 
 #game {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  /* max-width: 900px; */
   width: 100%;
   height: 100%;
 }
@@ -155,18 +205,17 @@
 }
 
 .remainingCards {
-  color: #fff;
+  color: rgb(0, 0, 0);
   margin-top: 10px;
   margin-right: 10px;
 }
 
 .network {
-  color: #fff;
+  color: rgb(2, 1, 1);
   margin-left: 10px;
 }
 
 body {
-  /* font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; */
   background-image: url("../assets/img/game.jpg");
   background-size: auto;
   -webkit-background-size: cover;
@@ -336,7 +385,6 @@ body {
   left: 50%;
   transform: translate(-50%,-50%);
   position: fixed;
-  /* min-height: 500px; */
   justify-content: center;
   align-self: center;
 }
@@ -366,10 +414,9 @@ body {
   border-radius: 10px;
   transform: translate(-50%, -70%);
   text-align: center;
-  /* display: none; */
   z-index: 50;
-
 }
+
 
 /**modal win*/
 #modalResult.won{
@@ -393,7 +440,7 @@ body {
 /*modal blackjack*/
 #modalResult.blackjack {
   background: rgb(1,251,255);
-  background: linear-gradient(90deg, rgba(1,251,255,1) 0%, rgba(110,240,202,1) 23%, rgba(131,92,241,1) 57%, rgba(214,89,211,1) 75%);
+  background: linear-gradient(151deg, rgba(1,251,255,1) 0%, rgba(110,240,202,1) 23%, rgba(131,92,241,1) 57%, rgba(214,89,211,1) 75%);
   background-size: 500% 500%;
 	animation: gradient 15s ease infinite;
   text-align: center;
@@ -449,12 +496,10 @@ body {
   font-size: 25px;
 }
 
-.modalResult.show{
+.modalResult .show{
     pointer-events: auto;
     opacity: 1;
 }
-
-
 
 /*********************************************************Mobile***********************************************/
 @media screen and (max-width: 500px)  {
@@ -467,7 +512,7 @@ body {
 
   #img img {
     margin-left: -70px;
-    width: 100px;
+    width: 80px;
   }
 
   .item {
@@ -482,6 +527,61 @@ body {
     height: 30%;
 
   }
+
+  /* Popup container */
+  .popup {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    z-index: 1;
+    color: white;
+    justify-content: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    
+  }
+  .popup > img {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* The actual popup */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 12px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top: 0%;
+    height: auto;
+    top: 100%;
+  }
+
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 13%;   
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgb(255, 255, 255) transparent
+  }
+
+  /* Toggle this class - hide and show the popup */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+
+
 
   .cards {
     position: absolute;
@@ -499,7 +599,7 @@ body {
   }
 
   #modalResult{
-    height: 130px;
+    height: 140px;
     width: 300px;
     border-radius: 5px;
     position: fixed;
@@ -531,12 +631,12 @@ body {
     cursor: pointer;
     font-weight: 600;
     border-radius: 4px;
-    font-size: 13px;
-    height: 30px;
-    background-color: #b9b9b9;
-    color: white;
+    font-size: 10px;
+    height: 25px;
     padding: 0 10px;
     transition: all 300ms ease-in-out;
+    width: 25%;
+    margin-top: 10px;
   }
 
   #modalResult .btn-restart:hover {
@@ -566,6 +666,14 @@ body {
     height: 40px;
   }
 
+  #modalResult .modal-content{
+    margin: 0 auto;
+  }
+  
+  #modalResult .title{
+    font-size: 16px;
+  }
+  
 }
 
 
@@ -573,7 +681,16 @@ body {
 @media screen and (min-width: 650px) {
   #img img {
     margin-left: -90px;
-    width: 105px;   
+    width: 120px;   
+  }
+
+  #img {
+    width: 25rem;
+    margin-top: 30%;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-10rem,0);
   }
 
   .item {
@@ -583,30 +700,10 @@ body {
     position: absolute;
     justify-content: center;
     align-self: center;
-    height: 31%;
     padding-top: 0;
     padding-bottom: 0;
   }
 
-  
-  .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    margin-right: 1rem;
-  }
-
-  .title{
-    text-align: center;
-    font-size: 18px;
-  }
-  
-  .text-modal{
-    font-size: 13px;
-    margin-left: 1em;
-    margin-right: 1em;
-  }
 }
 
 
@@ -637,7 +734,95 @@ button[disabled]:hover{
     position: absolute;
     left: 50%;
     right: 50%;
-    transform: translate(-30%,40%);
+    transform: translate(-30%,0%);
   }
   
+}
+
+/**************************************************orientation landscape device**********************************************/
+
+@media screen and (orientation: landscape) {
+
+  #modalResult{
+    height: 190px;
+    width: 400px;
+    border-radius: 5px;
+    position: fixed;
+    left: 50%;
+    top: 20%;
+    border-radius: 10px;
+    transform: translate(-50%, 0);
+  }
+  
+  #modalResult .modal-content{
+    margin: 0 auto;
+    font-size: 15px;
+  }
+  
+  #modalResult .title{
+    font-size: 16px;
+  }
+
+  #modalResult .btn-restart {
+    display: inline-block;
+    outline: 0;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+    font-size: 10px;
+    height: 35px;
+    padding: 0 10px;
+    transition: all 300ms ease-in-out;
+    width: 25%;
+    margin-top: 10px;
+  }
+
+  #modalResult .modal-header{
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 2em;
+  }
+  
+  .popup > img {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* The actual popup */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 9px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top: 0%;
+    height: 90px;
+    top: 100%;
+  }
+
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 6%;   
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgb(255, 255, 255) transparent;
+  }
+
+  /* Toggle this class - hide and show the popup */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+
 }

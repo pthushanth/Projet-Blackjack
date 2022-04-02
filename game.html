@@ -17,8 +17,15 @@
           <div id="result"></div>
           <div id="remainingCards" class="remainingCards"></div>
         </div>
+        <div class="popup" onclick="myFunction()"><img src="/assets/img/rules.png" height="50" width="50" />
+          <span class="popuptext" id="myPopup"><p>The goal of Blackjack is to have the hand without going over 21.
+            If you are below or above, you lose the game and you will have to start the game again. On the other hand, if you roll exactly 21, you hit Blackjack and win instantly.<br><br>
+            Press the modal to close and start to play.</p>
+          </span>
+        </div>
 
         <div id="modalResult"></div>
+        
 
         <div class="item">
           <!--<div id="loader" class="loader"></div>-->
@@ -35,7 +42,6 @@
             <div class="card four">
               <img src="/assets/img/heart.png" height="20" width="20" />
             </div>
-            <!---<div class="card five"></div>-->
            <p>Loading...</p>
           </div>
           <div id="img"></div>
@@ -87,4 +93,11 @@
   </body>
 
   <script src="js/App.js" type="module"></script>
+  <script>
+    // When the user clicks on div, open the popup
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+  </script>
 </html>
