@@ -5,17 +5,37 @@ class Player {
     this.score = 0;
     this.deck = deck;
     this.game = game;
+    this.isHold = false;
     this.isWin = false;
+    this.scoreAfterHold = 0;
   }
 
   async hitMe() {
-    let card = await this.deck.drawCard();
-    this.cards.push(card);
-    console.log(card);
-    this.addScore(card.value);
+    console.log(this.deck);
+    if (!this.deck.isPendingFetch) {
+      let card = await this.deck.drawCard();
+      console.log(card.value);
+
+      this.cards.push(card);
+      this.addScore(card.value);
+    }
   }
 
-  hold() {}
+  async hold() {
+    this.isHold = true;
+    let card = await this.deck.drawCard();
+    this.cards.push(card);
+    let points = this.getCardIntValue(card.value);
+    console.log(card.value);
+    console.log(points);
+    this.scoreAfterHold = this.score + points;
+    if (this.scoreAfterHold >= 21) {
+      this.isWin = true;
+    } else {
+      this.win = false;
+    }
+    this.game.isEnd = true;
+  }
 
   addScore(cardValue) {
     let points = this.getCardIntValue(cardValue);
@@ -28,9 +48,6 @@ class Player {
       this.win = false;
       this.game.isEnd = true;
     }
-    // console.log("card value :" + cardValue);
-    // console.log("card point :" + points);
-    console.log("score : " + this.score);
   }
 
   getCardIntValue = (cardValue) => {
@@ -43,9 +60,22 @@ class Player {
       )
         cardValue = "10";
     }
-    // console.log(typeof(cardValue)+" --- "+cardValue)
-
     return Number(cardValue);
+  };
+
+  undoHit = () => {
+    let lastCard = this.cards.pop();
+    console.log({ lastCard });
+    let lastCardValue = this.getCardIntValue(lastCard.value);
+    console.log(-lastCardValue);
+    this.addScore(-lastCardValue);
+  };
+
+  cancelHit = () => {
+    if (this.deck.isPendingFetch) {
+      this.deck.controller.abort();
+      console.log("Take card aborted");
+    }
   };
 }
 
