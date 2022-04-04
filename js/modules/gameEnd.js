@@ -1,5 +1,5 @@
 import { buttonStand, buttonTake, buttonUndo,imgDiv } from "./domElements.js";
-import { setVibration } from "./vibrate.js";
+import vibrate,{ setVibration } from "./vibrate.js";
 import { showModalResult } from "./modal.js";
 
 export const gameEnd = (game) => {
@@ -20,8 +20,10 @@ export const gameEnd = (game) => {
     setVibration([
       100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100, 50, 100,
     ]);
+    
     showModalResult(game, "lost");
   }
+  vibrate();
 };
 function animLose(){
   let allImages = document.querySelectorAll('#img img')
