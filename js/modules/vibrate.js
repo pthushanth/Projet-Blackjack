@@ -4,8 +4,7 @@ export const setVibration = (duration) => {
   vibrateDuration = duration;
 };
 
-export default function (vibrateDuration = vibrateDuration) {
-  //avoid vibrate error on mac
+export default function () {
   const canVibrate = window.navigator.vibrate;
   if (canVibrate) window.navigator.vibrate(vibrateDuration);
 }

@@ -27,7 +27,32 @@ export const displayHoldCardImage = (img) => {
     imgDiv.append(newImg);
   };
   newImg.src = img;
+  setTimeout(anim,10);
+  function anim(){
+    let imgfirst = imgDiv.lastElementChild;
+  let imglast = imgDiv.lastElementChild;
+   console.log(imglast);
+    if (imglast == null){
+      imgfirst.animate(
+      [   
+       {transform: 'translate(-100px,-100px)'},
+       {transform: 'translate(0px,-75px)'},
+       {transform: 'translate(0px,0px)'}
+      ],
+      {duration: 400}
+      );}else{
+        imglast.animate(
+          [   
+           {transform: 'translate(-100px,-100px)'},
+           {transform: 'translate(0px,-75px)'},
+           {transform: 'translate(0px,0px)'}
+          ],
+          {duration: 400}
+          );
+      }}
+
 };
+
 
 export const displayScore = (score) => {
   const text = `Score : ${score}`;

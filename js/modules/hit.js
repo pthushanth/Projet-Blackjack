@@ -11,6 +11,7 @@ import { displayHoldCardImage } from "./display.js";
 import { setVibration } from "./vibrate.js";
 
 export const hit = async (game) => {
+  
   if (!game.deck.isPendingFetch) {
     loader.classList.add("display");
     //to not take a card while waiting for a card
