@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/app.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section id="game">
+      <div class="container box">
+        <div class="top container">
+          <div id="networkStatus"></div>
+          <div id="result"></div>
+          <div id="remainingCards" style="color: #fff"></div>
+        </div>
+        <div class="item">
+          <div id="loader" class="loader"></div>
+          <div id="img"></div>
+
+          <div id="scoreAfter"></div>
+        </div>
+        <div class="bottom container">
+          <div class="container">
+            <button class="btn" id="takeCard">Deal</button>
+            <button class="btn" id="stand">Stand</button>
+            <button class="btn" id="restart">Restart</button>
+          </div>
+          <div class="divScore">
+            <div id="score"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="js/App.js" type="module"></script>
+</html>
