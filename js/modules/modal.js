@@ -3,15 +3,24 @@ import { restart } from "./restart.js";
 
 const divOverlay = document.getElementById("overlay");
 export function showModalResult(game, result, message = null) {
+  console.log("testtttttttt");
   let score = game.player.score;
   let title;
   let content;
   if (result === "won") {
-    content = `Good Job ! You won because your score is ${score} &#128513; 😎🙌`;
     title = "You Won 👏!";
+    if (game.player.isHold) {
+      content = `Well done ! You won because your score futur would be ${game.player.scoreAfterHold} and it\'s over than 21 !! 😏🤙`;
+    } else {
+      content = `Good Job ! You won because your score is ${score} &#128513; 😎🙌`;
+    }
   } else if (result === "lost") {
-    content = `So bad ! You lost because your score is ${score} 😭😭😭 `;
     title = "You Lost 👎!";
+    if (game.player.isHold) {
+      content = `You lost because your score futur would be ${game.player.scoreAfterHold} and it\'s under than 21... 😒😒😒`;
+    } else {
+      content = `So bad ! You lost because your score is ${score} 😭😭😭 `;
+    }
   } else if (result === "blackjack") {
     content = `Congrats ! You won because your score is ${score} and it\s BLACKJACK !!!! 🤩🤩🤩`;
     title = "BLACKJACK 🎉🎊 !!!";

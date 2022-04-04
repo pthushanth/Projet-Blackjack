@@ -5,6 +5,7 @@ class Player {
     this.score = 0;
     this.deck = deck;
     this.game = game;
+    this.isHold = false;
     this.isWin = false;
     this.scoreAfterHold = 0;
   }
@@ -21,6 +22,7 @@ class Player {
   }
 
   async hold() {
+    this.isHold = true;
     let card = await this.deck.drawCard();
     this.cards.push(card);
     let points = this.getCardIntValue(card.value);
